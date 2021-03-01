@@ -7,41 +7,27 @@
 //
 
 import UIKit
-import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: CLTypingLabel!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = K.appName
-        
-        //Code that manually animates the label on the welcome Screen
-//        titleLabel.text = ""
-//        var characterIndex = 0.0
-//        let titleText = "⚡️FlashChat"
-//        for letters in titleText {
-//            print("-")
-//            print(0.1 * characterIndex)
-//            print(letters)
-//            Timer.scheduledTimer(withTimeInterval: 0.1 * characterIndex, repeats: false) { (timer) in
-//                self.titleLabel.text?.append(letters)
-//            }
-//            characterIndex + 1
-//
-//        }
+        titleLabel.text = ""
+        var characterIndex = 0.0
+        let titleText = "⚡️FlashChat"
+        for letters in titleText {
+            print("-")
+            print(0.1 * characterIndex)
+            print(letters)
+            Timer.scheduledTimer(withTimeInterval: 0.1 * characterIndex, repeats: false) { (timer) in
+                self.titleLabel.text?.append(letters)
+            }
+            characterIndex + 1
+            
+        }
     }
     
 
